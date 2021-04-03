@@ -11,7 +11,10 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatInputModule} from '@angular/material/input';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatTableModule} from '@angular/material/table';
-
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatSelectModule} from '@angular/material/select';
+import {MatRadioModule} from '@angular/material/radio';
 const materialComponents  = [
   MatButtonModule,
   MatSidenavModule,
@@ -24,7 +27,11 @@ const materialComponents  = [
   MatExpansionModule,
   MatInputModule,
   MatTabsModule,
-  MatTableModule
+  MatTableModule,
+  MatPaginatorModule,
+  MatDatepickerModule,
+  MatSelectModule,
+  MatRadioModule
 ]
 
 
