@@ -1,8 +1,27 @@
 
+<mat-sidenav-container class="example-container">
+    
+    <mat-sidenav #sidenev class=".mat-drawer-side" mode="side" opened>
+        <app-side-bar></app-side-bar>
+    </mat-sidenav>
 
-<h1>Mohit Mahajan</h1>
-<h2>H2 Heading </h2>
-<button mat-raised-button color="primary" >Primary</button>
+
+    <mat-sidenav-content>
+        <mat-toolbar>
+            <button (click)="sidenev.toggle()" mat-icon-button >
+                <i  class="material-icons" >menu</i>
+            </button>
+            <span class="example-fill-remaining-space"></span>
+
+            <span class="user-text">Welcome Mohit</span>
+            <button mat-button >Log Out</button>
+        </mat-toolbar>
+        <div class="main-contain">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
 
 
-<router-outlet></router-outlet>
+</mat-sidenav-container>
+
+
