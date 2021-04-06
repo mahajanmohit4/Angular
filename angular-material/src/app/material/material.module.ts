@@ -15,6 +15,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatSelectModule} from '@angular/material/select';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+
 const materialComponents  = [
   MatButtonModule,
   MatSidenavModule,
@@ -31,7 +33,8 @@ const materialComponents  = [
   MatPaginatorModule,
   MatDatepickerModule,
   MatSelectModule,
-  MatRadioModule
+  MatRadioModule,
+  MatAutocompleteModule
 ]
 
 

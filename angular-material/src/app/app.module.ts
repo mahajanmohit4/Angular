@@ -14,7 +14,10 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { StepperComponent } from './components/stepper/stepper.component';
 import { TableComponent } from './components/table/table.component';
 import { TabsComponent } from './components/tabs/tabs.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormEventComponent } from './rxjs_components/form-event/form-event.component';
+import { DemoComponent } from './rxjs_components/demo/demo.component';
 
 @NgModule({
   declarations: [
@@ -26,14 +29,18 @@ import { ReactiveFormsModule } from '@angular/forms';
     SideBarComponent,
     StepperComponent,
     TableComponent,
-    TabsComponent
+    TabsComponent,
+    FormEventComponent,
+    DemoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

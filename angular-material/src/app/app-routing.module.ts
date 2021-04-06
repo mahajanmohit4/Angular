@@ -6,6 +6,8 @@ import { GridListComponent } from './components/grid-list/grid-list.component';
 import { StepperComponent } from './components/stepper/stepper.component';
 import { TableComponent } from './components/table/table.component';
 import { TabsComponent } from './components/tabs/tabs.component';
+import { DemoComponent } from './rxjs_components/demo/demo.component';
+import { FormEventComponent } from './rxjs_components/form-event/form-event.component';
 
 const routes: Routes = [
   {
@@ -34,6 +36,11 @@ const routes: Routes = [
     path: "form",
     component: FormComponent
   },
+  {
+    path: "demo",
+    component: DemoComponent
+  },  
+  {path: "form-event", component: FormEventComponent},
   { path: "", redirectTo: "/grid-list", pathMatch: "full" }
 ];
 
