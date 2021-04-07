@@ -20,6 +20,7 @@ import { FormEventComponent } from './rxjs_components/form-event/form-event.comp
 import { DemoComponent } from './rxjs_components/demo/demo.component';
 import { OfFromComponent } from './rxjs_components/of-from/of-from.component';
 import { ToArrayComponent } from './rxjs_components/to-array/to-array.component';
+import { ObservableComponent } from './rxjs_components/observable/observable.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ToArrayComponent } from './rxjs_components/to-array/to-array.component'
     FormEventComponent,
     DemoComponent,
     OfFromComponent,
-    ToArrayComponent
+    ToArrayComponent,
+    ObservableComponent
   ],
   imports: [
     BrowserModule,
