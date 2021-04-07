@@ -10,6 +10,7 @@ import { DemoComponent } from './rxjs_components/demo/demo.component';
 import { FormEventComponent } from './rxjs_components/form-event/form-event.component';
 import { ObservableComponent } from './rxjs_components/observable/observable.component';
 import { OfFromComponent } from './rxjs_components/of-from/of-from.component';
+import { OperatorsComponent } from './rxjs_components/operators/operators.component';
 import { ToArrayComponent } from './rxjs_components/to-array/to-array.component';
 
 const routes: Routes = [
@@ -52,6 +53,9 @@ const routes: Routes = [
   },
   {
     path: "observable", component:ObservableComponent
+  },
+  {
+    path:"operator", component:OperatorsComponent
   }
   // { path: "", redirectTo: "/grid-list", pathMatch: "full" }
 ];

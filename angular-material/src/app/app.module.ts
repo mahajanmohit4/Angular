@@ -21,6 +21,7 @@ import { DemoComponent } from './rxjs_components/demo/demo.component';
 import { OfFromComponent } from './rxjs_components/of-from/of-from.component';
 import { ToArrayComponent } from './rxjs_components/to-array/to-array.component';
 import { ObservableComponent } from './rxjs_components/observable/observable.component';
+import { OperatorsComponent } from './rxjs_components/operators/operators.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { ObservableComponent } from './rxjs_components/observable/observable.com
     DemoComponent,
     OfFromComponent,
     ToArrayComponent,
-    ObservableComponent
+    ObservableComponent,
+    OperatorsComponent
   ],
   imports: [
     BrowserModule,
