@@ -8,6 +8,8 @@ import { TableComponent } from './components/table/table.component';
 import { TabsComponent } from './components/tabs/tabs.component';
 import { DemoComponent } from './rxjs_components/demo/demo.component';
 import { FormEventComponent } from './rxjs_components/form-event/form-event.component';
+import { OfFromComponent } from './rxjs_components/of-from/of-from.component';
+import { ToArrayComponent } from './rxjs_components/to-array/to-array.component';
 
 const routes: Routes = [
   {
@@ -41,7 +43,13 @@ const routes: Routes = [
     component: DemoComponent
   },  
   {path: "form-event", component: FormEventComponent},
-  { path: "", redirectTo: "/grid-list", pathMatch: "full" }
+  {
+    path: "of-from", component: OfFromComponent
+  },
+  {
+    path:"to-array", component:ToArrayComponent
+  }
+  // { path: "", redirectTo: "/grid-list", pathMatch: "full" }
 ];
 
 @NgModule({

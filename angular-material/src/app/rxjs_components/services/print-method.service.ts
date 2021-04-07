@@ -13,4 +13,11 @@ export class PrintMethodService {
     document.getElementById('lst').appendChild(el)
   }
 
+  print2(tid,val){
+    let el = document.createElement('li');
+ 
+    el.innerText = val;
+    document.getElementById(tid).appendChild(el)
+  }
+
 }

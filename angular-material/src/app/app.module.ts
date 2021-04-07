@@ -18,6 +18,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormEventComponent } from './rxjs_components/form-event/form-event.component';
 import { DemoComponent } from './rxjs_components/demo/demo.component';
+import { OfFromComponent } from './rxjs_components/of-from/of-from.component';
+import { ToArrayComponent } from './rxjs_components/to-array/to-array.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { DemoComponent } from './rxjs_components/demo/demo.component';
     TableComponent,
     TabsComponent,
     FormEventComponent,
-    DemoComponent
+    DemoComponent,
+    OfFromComponent,
+    ToArrayComponent
   ],
   imports: [
     BrowserModule,
