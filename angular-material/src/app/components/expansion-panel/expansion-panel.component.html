@@ -1,18 +1,87 @@
-Panal
-<div fxLayout="column">
-    <div fxLayout="row">
-        <div fxFlex="10" class="branding">
-            <h3>B</h3>
-        </div>
-        <div fxFlex=70>
-           Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto voluptatum fuga ea repudiandae debitis quod tempora est iste impedit eos velit cumque optio dolor voluptas eligendi quis, quo dolorem nemo.
-        </div>
-    </div>
-    <div fxLayout="row">
+<div class="container-fluid">
+    <div class="row" style="height: 100vh">
+      <!-- Left Block -->
+      <div
+        class="col bg-warning d-flex flex-column justify-content-center align-items-center"
+      >
+      
+        <div class="h3">Welcome to my Appplication</div>
         
+      </div>
+  
+      <!-- Right Block-->
+      <div
+        class="col bg-light d-flex flex-column justify-content-center align-items-center"
+        [formGroup]="fbFormGroup"
+      >
+        <div class="alert alert-danger" role="alert" *ngIf="uiInvalidCredential">
+          A simple danger alert—check it out!
+        </div>
+  
+        <div class="h4">Application Register</div>
+  
+        <div>
+          <input
+            type="text"
+            placeholder="Enter Username"
+            class="form-control"
+            formControlName="username"
+          />
+        </div>
+  
+        <div class="mt-1">
+          <input
+            type="password"
+            placeholder="Enter Password"
+            class="form-control"
+            formControlName="password"
+          />
+        </div>
+  
+        <div class="mt-1">
+          <input
+            type="text"
+            placeholder="Enter Email"
+            class="form-control"
+            formControlName="email"
+          />
+        </div>
+  
+        <div class="mt-1">
+          <input
+            type="text"
+            placeholder="Enter Mobile"
+            class="form-control"
+            formControlName="mobile"
+          />
+        </div>
+  
+        <button
+          class="btn btn-sm btn-warning mt-2 mb-2"
+          [disabled]="!fbFormGroup.valid"
+          (click)="registerHere()"
+        >
+          Register Here
+        </button>
+  
+        <a >Login Here</a>
+      </div>
     </div>
-    <div fxLayout="row">
-        
-    </div>
-    
-</div>
+  </div>
+
+  <hr>
+  <hr>
+
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. pat@example.com">
+      <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="emailFormControl.hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+  </form>
+  

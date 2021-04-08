@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
@@ -42,6 +43,15 @@ export class TableComponent implements AfterViewInit {
     this.dataSource = new MatTableDataSource(users);
   }
 
+  hideRequiredControl = new FormControl(false);
+  floatLabelControl = new FormControl('auto');
+
+
+
+
+
+
+  
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
