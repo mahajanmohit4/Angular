@@ -22,6 +22,10 @@ import { OfFromComponent } from './rxjs_components/of-from/of-from.component';
 import { ToArrayComponent } from './rxjs_components/to-array/to-array.component';
 import { ObservableComponent } from './rxjs_components/observable/observable.component';
 import { OperatorsComponent } from './rxjs_components/operators/operators.component';
+import { Operator2Component } from './rxjs_components/operator2/operator2.component';
+import { ClientCategorysPricingComponent } from './components/client-categorys-pricing/client-categorys-pricing.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -39,7 +43,10 @@ import { OperatorsComponent } from './rxjs_components/operators/operators.compon
     OfFromComponent,
     ToArrayComponent,
     ObservableComponent,
-    OperatorsComponent
+    OperatorsComponent,
+    Operator2Component,
+    ClientCategorysPricingComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -48,7 +55,8 @@ import { OperatorsComponent } from './rxjs_components/operators/operators.compon
     MaterialModule,
     ReactiveFormsModule,
     FormsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

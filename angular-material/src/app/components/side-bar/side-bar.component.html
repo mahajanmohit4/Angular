@@ -8,11 +8,14 @@
 </div>
 
 <mat-nav-list>
+    <a mat-list-item [routerLink]="['/c_categorys_pricing']" 
+    routerLinkActive="active" >Category Pricing</a>
+
     <a mat-list-item [routerLink]="['/grid-list']" 
     routerLinkActive="active" >Grid List</a>
 
     <a mat-list-item [routerLink]="['/stepper']" 
-    routerLinkActive="active" >Steeper</a>
+    routerLinkActive="active" *ngIf="steeper"  >Steeper</a>
 
     <a mat-list-item [routerLink]="['/tabs']" 
     routerLinkActive="active" >Tabs</a>

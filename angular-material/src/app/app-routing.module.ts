@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ClientCategorysPricingComponent } from './components/client-categorys-pricing/client-categorys-pricing.component';
 import { ExpansionPanelComponent } from './components/expansion-panel/expansion-panel.component';
 import { FormComponent } from './components/form/form.component';
 import { GridListComponent } from './components/grid-list/grid-list.component';
@@ -10,13 +11,18 @@ import { DemoComponent } from './rxjs_components/demo/demo.component';
 import { FormEventComponent } from './rxjs_components/form-event/form-event.component';
 import { ObservableComponent } from './rxjs_components/observable/observable.component';
 import { OfFromComponent } from './rxjs_components/of-from/of-from.component';
+import { Operator2Component } from './rxjs_components/operator2/operator2.component';
 import { OperatorsComponent } from './rxjs_components/operators/operators.component';
 import { ToArrayComponent } from './rxjs_components/to-array/to-array.component';
+import { AuthGuardGuard } from './services/auth-guard.guard';
+import { AuthorrestricService } from './services/authorrestric.service';
+import { RestrictionService } from './services/restriction.service';
 
 const routes: Routes = [
   {
     path: "grid-list",
-    component: GridListComponent
+    component: GridListComponent,
+    canActivate:[AuthorrestricService]
 
   },
   {
@@ -56,6 +62,12 @@ const routes: Routes = [
   },
   {
     path:"operator", component:OperatorsComponent
+  },
+  {
+    path:"operator2", component:Operator2Component
+  },
+  {
+    path:"c_categorys_pricing", component:ClientCategorysPricingComponent
   }
   // { path: "", redirectTo: "/grid-list", pathMatch: "full" }
 ];
