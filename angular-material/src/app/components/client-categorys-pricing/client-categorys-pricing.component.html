@@ -34,11 +34,12 @@
   
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    
   </table>
   <br>
-  
-<div class="container">
 
-</div>
+<!-- <app-add-client-categorys-pricing></app-add-client-categorys-pricing> -->
+<button mat-raised-button color="accent" (click)="addDetails()">Add Details</button>
+
 
 

@@ -1,0 +1,88 @@
+
+    <div [formGroup]="formBuilderGroup">
+      <!-- Conplexiy Category -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Conplexiy Category</mat-label>
+        <input
+          type="text"
+          matInput
+          [formControl]="c_complexity_category"
+          formControlName="c_complexity_category"
+          placeholder="Conplexiy Category"
+        />
+        <mat-error *ngIf="!c_complexity_category.hasError('required')">
+          Please enter a valid text
+        </mat-error>
+        <mat-error *ngIf="c_complexity_category.hasError('required')">
+          Conplexiy Category <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <br>
+      <!-- Description -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Description</mat-label>
+        <input
+          type="text"
+          matInput
+          [formControl]="c_description"
+          placeholder="Conplexiy Category"
+          formControlName="c_description"
+        />
+        <mat-error *ngIf="!c_description.hasError('required')">
+          Please enter a valid text
+        </mat-error>
+        <mat-error *ngIf="c_description.hasError('required')">
+          Description <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+  <br>
+      <!-- Market Price -->
+      <mat-form-field class="example-full-width">
+        <mat-label>Market Price</mat-label>
+        <input
+          type="text"
+          matInput
+          [formControl]="c_market_price"
+          placeholder="Conplexiy Category"
+          formControlName="c_market_price"
+        />
+        <mat-error *ngIf="!c_market_price.hasError('required')">
+          Please enter a valid text
+        </mat-error>
+        <mat-error *ngIf="c_market_price.hasError('required')">
+          Market Price <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+  <br>
+      <!-- CE Price -->
+      <mat-form-field class="example-full-width">
+        <mat-label>CE Price</mat-label>
+        <input
+          type="text"
+          matInput
+          [formControl]="c_ce_price"
+          placeholder="c_ce_price Category"
+          formControlName="c_ce_price"
+        />
+        <mat-error *ngIf="!c_ce_price.hasError('required')">
+          Please enter a valid text
+        </mat-error>
+        <mat-error *ngIf="c_ce_price.hasError('required')">
+          CE Price <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    
+
+  <mat-dialog-actions align="end">
+    <button
+    [disabled]="!formBuilderGroup.valid"
+    (click)="submit()"
+    mat-raised-button color="primary"
+  >
+     submit
+  </button>
+    <button mat-button mat-dialog-close>Close</button>
+   
+  </mat-dialog-actions>
+  
