@@ -1,87 +1,151 @@
 <div class="container-fluid">
-    <div class="row" style="height: 100vh">
-      <!-- Left Block -->
-      <div
-        class="col bg-warning d-flex flex-column justify-content-center align-items-center"
-      >
-      
-        <div class="h3">Welcome to my Appplication</div>
-        
+  <div class="row" style="height: 100vh">
+    <!-- Left Block -->
+    <div
+      class="col bg-warning d-flex flex-column justify-content-center align-items-center"
+    >
+      <div class="h3">Welcome to my Appplication</div>
+    </div>
+
+    <!-- Right Block-->
+    <div
+      class="col bg-light d-flex flex-column justify-content-center align-items-center"
+      [formGroup]="fbFormGroup"
+    >
+      <div class="alert alert-danger" role="alert" *ngIf="uiInvalidCredential">
+        A simple danger alert—check it out!
       </div>
-  
-      <!-- Right Block-->
-      <div
-        class="col bg-light d-flex flex-column justify-content-center align-items-center"
-        [formGroup]="fbFormGroup"
-      >
-        <div class="alert alert-danger" role="alert" *ngIf="uiInvalidCredential">
-          A simple danger alert—check it out!
-        </div>
-  
-        <div class="h4">Application Register</div>
-  
-        <div>
-          <input
-            type="text"
-            placeholder="Enter Username"
-            class="form-control"
-            formControlName="username"
-          />
-        </div>
-  
-        <div class="mt-1">
-          <input
-            type="password"
-            placeholder="Enter Password"
-            class="form-control"
-            formControlName="password"
-          />
-        </div>
-  
-        <div class="mt-1">
-          <input
-            type="text"
-            placeholder="Enter Email"
-            class="form-control"
-            formControlName="email"
-          />
-        </div>
-  
-        <div class="mt-1">
-          <input
-            type="text"
-            placeholder="Enter Mobile"
-            class="form-control"
-            formControlName="mobile"
-          />
-        </div>
-  
-        <button
-          class="btn btn-sm btn-warning mt-2 mb-2"
-          [disabled]="!fbFormGroup.valid"
-          (click)="registerHere()"
-        >
-          Register Here
-        </button>
-  
-        <a >Login Here</a>
+
+      <div class="h4">Application Register</div>
+
+      <div>
+        <input
+          type="text"
+          placeholder="Enter Username"
+          class="form-control"
+          formControlName="username"
+        />
       </div>
+
+      <div class="mt-1">
+        <input
+          type="password"
+          placeholder="Enter Password"
+          class="form-control"
+          formControlName="password"
+        />
+      </div>
+
+      <div class="mt-1">
+        <input
+          type="text"
+          placeholder="Enter Email"
+          class="form-control"
+          formControlName="email"
+        />
+      </div>
+
+      <div class="mt-1">
+        <input
+          type="text"
+          placeholder="Enter Mobile"
+          class="form-control"
+          formControlName="mobile"
+        />
+      </div>
+
+      <button
+        class="btn btn-sm btn-warning mt-2 mb-2"
+        [disabled]="!fbFormGroup.valid"
+        (click)="registerHere()"
+      >
+        Register Here
+      </button>
+
+      <a>Login Here</a>
     </div>
   </div>
+</div>
 
-  <hr>
-  <hr>
+<hr />
 
-  <form class="example-form">
+
+  <div [formGroup]="formBuilderGroup">
+    <!-- Conplexiy Category -->
     <mat-form-field class="example-full-width">
-      <mat-label>Email</mat-label>
-      <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. pat@example.com">
-      <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-        Please enter a valid email address
+      <mat-label>Conplexiy Category</mat-label>
+      <input
+        type="text"
+        matInput
+        [formControl]="c_complexity_category"
+        formControlName="c_complexity_category"
+        placeholder="Conplexiy Category"
+      />
+      <mat-error *ngIf="!c_complexity_category.hasError('required')">
+        Please enter a valid text
       </mat-error>
-      <mat-error *ngIf="emailFormControl.hasError('required')">
-        Email is <strong>required</strong>
+      <mat-error *ngIf="c_complexity_category.hasError('required')">
+        Conplexiy Category <strong>required</strong>
       </mat-error>
     </mat-form-field>
-  </form>
-  
+
+    <!-- Description -->
+    <mat-form-field class="example-full-width">
+      <mat-label>Description</mat-label>
+      <input
+        type="text"
+        matInput
+        [formControl]="c_description"
+        placeholder="Conplexiy Category"
+        formControlName="c_description"
+      />
+      <mat-error *ngIf="!c_description.hasError('required')">
+        Please enter a valid text
+      </mat-error>
+      <mat-error *ngIf="c_description.hasError('required')">
+        Description <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Market Price -->
+    <mat-form-field class="example-full-width">
+      <mat-label>Market Price</mat-label>
+      <input
+        type="text"
+        matInput
+        [formControl]="c_market_price"
+        placeholder="Conplexiy Category"
+        formControlName="c_market_price"
+      />
+      <mat-error *ngIf="!c_market_price.hasError('required')">
+        Please enter a valid text
+      </mat-error>
+      <mat-error *ngIf="c_market_price.hasError('required')">
+        Market Price <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <!-- CE Price -->
+    <mat-form-field class="example-full-width">
+      <mat-label>CE Price</mat-label>
+      <input
+        type="text"
+        matInput
+        [formControl]="c_ce_price"
+        placeholder="c_ce_price Category"
+        formControlName="c_ce_price"
+      />
+      <mat-error *ngIf="!c_ce_price.hasError('required')">
+        Please enter a valid text
+      </mat-error>
+      <mat-error *ngIf="c_ce_price.hasError('required')">
+        CE Price <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <button
+  [disabled]="!formBuilderGroup.valid"
+  (click)="submit()"
+>
+   submit
+</button>

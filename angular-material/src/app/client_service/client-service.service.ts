@@ -14,4 +14,11 @@ export class ClientServiceService {
   getClientCategoryPricing(): Observable<ClientCategoryPricing[]>{
     return this.httpClient.get<ClientCategoryPricing[]>(`${this.c_category_princing_url}`);
   }
+  addClientCategoryPricing(clientData:ClientCategoryPricing): Observable<object>{
+    return this.httpClient.post(`${this.c_category_princing_url}`,ClientCategoryPricing);
+  }
+
+  createClient(client){
+    return this.httpClient.post("http://localhost:3000/c_categorys_pricings",client);
+  }
 }
