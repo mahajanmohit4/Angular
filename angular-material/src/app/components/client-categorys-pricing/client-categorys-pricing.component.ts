@@ -38,10 +38,9 @@ export class ClientCategorysPricingComponent implements OnInit {
   constructor( private clientService: ClientServiceService) { }
 
 
-  
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
+  displayedColumns: string[] = ['c_complexity_category', 'c_description', 'c_market_price', 'c_ce_price'];
+  dataSource ;
 
   ngOnInit(): void {
     // console.log(this.dataSource);
@@ -51,7 +50,9 @@ export class ClientCategorysPricingComponent implements OnInit {
   getDetails(){
    
     this.clientService.getClientCategoryPricing().subscribe(res=>{
-      console.log(res);
+      // console.log(res);
+      this.dataSource = res;
+      console.log(this.dataSource);
       
     })
   }
