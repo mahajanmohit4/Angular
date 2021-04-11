@@ -42,15 +42,23 @@ export class ClientCategorysPricingComponent implements OnInit {
       
     })
   }
-
+  dialogRef
   addDetails(){
-    // this.service.initializeFormGroup();
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
-    dialogConfig.width = "60%";
-    const dialogRef = this.dialog.open(AddClientCategorysPricingComponent,dialogConfig);
-   
+    
+    // const dialogConfig = new MatDialogConfig();
+    // dialogConfig.disableClose = true;
+    // dialogConfig.autoFocus = true;
+    // dialogConfig.width = "60%";
+    //  this.dialog.open(AddClientCategorysPricingComponent,dialogConfig);
+    this.dialogRef = this.dialog.open(AddClientCategorysPricingComponent, {
+      disableClose: false,
+      width: '350px',
+    });
+    // this.dialogRef.componentInstance.confirmMessage = 'Are you sure you want to Fix Tag ?';
+    this.dialogRef.afterClosed().subscribe(result => {
+     console.log('dialog closed');
+     this.getDetails();
+    });
   }
 
 }

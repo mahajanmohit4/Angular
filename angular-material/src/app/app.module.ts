@@ -26,6 +26,7 @@ import { Operator2Component } from './rxjs_components/operator2/operator2.compon
 import { ClientCategorysPricingComponent } from './components/client-categorys-pricing/client-categorys-pricing.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AddClientCategorysPricingComponent } from './components/add-client-categorys-pricing/add-client-categorys-pricing.component';
+import { CategorysPricingsComponent } from './components/categorys-pricings/categorys-pricings.component';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { AddClientCategorysPricingComponent } from './components/add-client-cate
     Operator2Component,
     ClientCategorysPricingComponent,
     AddClientCategorysPricingComponent,
+    CategorysPricingsComponent,
    
   ],
   imports: [

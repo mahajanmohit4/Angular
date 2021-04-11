@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AddClientCategorysPricingComponent } from './components/add-client-categorys-pricing/add-client-categorys-pricing.component';
+import { CategorysPricingsComponent } from './components/categorys-pricings/categorys-pricings.component';
 import { ClientCategorysPricingComponent } from './components/client-categorys-pricing/client-categorys-pricing.component';
 import { ExpansionPanelComponent } from './components/expansion-panel/expansion-panel.component';
 import { FormComponent } from './components/form/form.component';
@@ -72,6 +73,9 @@ const routes: Routes = [
   },
   {
     path:"add-client", component:AddClientCategorysPricingComponent
+  },
+  {
+    path:"categorys_pricings", component:CategorysPricingsComponent
   }
   // { path: "", redirectTo: "/grid-list", pathMatch: "full" }
 ];

@@ -35,8 +35,8 @@ export class AddClientCategorysPricingComponent implements OnInit {
     const data = this.formBuilderGroup.value;
     
     this.clientService.createClient(data).subscribe(res=>{
-      console.log("aala re "+ res);
-      this.router.navigate(['c_categorys_pricing']);
+      console.log("done "+ res);
+      // this.router.navigate(['c_categorys_pricing']);
     })
   }
  

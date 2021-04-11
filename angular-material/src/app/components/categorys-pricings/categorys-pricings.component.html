@@ -1,0 +1,51 @@
+<p>categorys-pricings works!</p>
+
+<button *ngIf="addBtn"
+    mat-raised-button color="accent"
+    (click)="addDetials()">Add Detials</button>
+<button
+  *ngIf="inputForm"
+  mat-raised-button color="primary"
+  [disabled]="!fbFormGroup.valid"
+  (click)="saveDetials()"
+>
+  Save Detials
+</button>
+<button *ngIf="inputForm" 
+mat-raised-button color="warn"
+(click)="cencledetials()">Cancel</button>
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Complexity Category</th>
+      <th scope="col">Description</th>
+      <th scope="col">Market Price</th>
+      <th scope="col">CE Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngIf="inputForm" [formGroup]="fbFormGroup">
+      <td scope="row" data-label="Complexity Category">
+        <input type="text" formControlName="c_complexity_category" />
+      </td>
+      <td data-label="Description">
+        <input type="text" formControlName="c_description" />
+      </td>
+      <td data-label="Market Price">
+        <input type="text" formControlName="c_market_price" />
+      </td>
+      <td data-label="CE Price">
+        <input type="text" formControlName="c_ce_price" />
+      </td>
+    </tr>
+    <tr *ngFor="let element of dataSource">
+      <td scope="row" data-label="Complexity Category">
+        {{ element.c_complexity_category }}
+      </td>
+      <td data-label="Description">{{ element.c_description }}</td>
+      <td data-label="Market Price">{{ element.c_market_price }}</td>
+      <td data-label="CE Price">{{ element.c_ce_price }}</td>
+    </tr>
+  </tbody>
+</table>
+

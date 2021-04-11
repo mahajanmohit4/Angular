@@ -61,7 +61,7 @@
           type="text"
           matInput
           [formControl]="c_ce_price"
-          placeholder="c_ce_price Category"
+          placeholder="CE Price"
           formControlName="c_ce_price"
         />
         <mat-error *ngIf="!c_ce_price.hasError('required')">
@@ -79,10 +79,11 @@
     [disabled]="!formBuilderGroup.valid"
     (click)="submit()"
     mat-raised-button color="primary"
+    
   >
      submit
   </button>
     <button mat-button mat-dialog-close>Close</button>
    
   </mat-dialog-actions>
-  
+   
