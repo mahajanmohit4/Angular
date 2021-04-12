@@ -1,0 +1,30 @@
+<p>modify-category-pricing works!</p>
+
+<table>
+    <thead>
+      <tr>
+        <th scope="col">Complexity Category</th>
+        <th scope="col">Description</th>
+        <th scope="col">Market Price</th>
+        <th scope="col">CE Price</th>
+      </tr>
+    </thead>
+    <tbody>
+   
+      <tr  [formGroup]="fbFormGroup" value="">
+        <td scope="row" data-label="Complexity Category">
+          <input type="text" formControlName="c_complexity_category" />
+        </td>
+        <td data-label="Description">
+          <input type="text" formControlName="c_description" />
+        </td>
+        <td data-label="Market Price">
+          <input type="text" formControlName="c_market_price" />
+        </td>
+        <td data-label="CE Price">
+          <input type="text" formControlName="c_ce_price" />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button (click)="submitForm()">submit</button>

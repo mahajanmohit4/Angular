@@ -21,4 +21,13 @@ export class ClientServiceService {
   createClient(client){
     return this.httpClient.post("http://localhost:3000/c_categorys_pricings",client);
   }
+  deleteCategoryPricing(id:number){
+    return this.httpClient.delete(`${this.c_category_princing_url}/${id}`);
+  }
+  modifyCategoryPricing(id:number, clientData:ClientCategoryPricing){
+    return this.httpClient.put(`${this.c_category_princing_url}/${id}`,clientData);
+  }
+  getCategoryPricingById(id:number){
+    return this.httpClient.get<ClientCategoryPricing>(`${this.c_category_princing_url}/${id}`);
+  }
 }

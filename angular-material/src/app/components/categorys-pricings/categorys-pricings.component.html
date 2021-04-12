@@ -1,19 +1,5 @@
 <p>categorys-pricings works!</p>
 
-<button *ngIf="addBtn"
-    mat-raised-button color="accent"
-    (click)="addDetials()">Add Detials</button>
-<button
-  *ngIf="inputForm"
-  mat-raised-button color="primary"
-  [disabled]="!fbFormGroup.valid"
-  (click)="saveDetials()"
->
-  Save Detials
-</button>
-<button *ngIf="inputForm" 
-mat-raised-button color="warn"
-(click)="cencledetials()">Cancel</button>
 <table>
   <thead>
     <tr>
@@ -24,6 +10,18 @@ mat-raised-button color="warn"
     </tr>
   </thead>
   <tbody>
+    <tr *ngFor="let element of dataSource">
+      <td scope="row" data-label="Complexity Category">
+        {{ element.c_complexity_category }}
+      </td>
+      <td data-label="Description">{{ element.c_description }}</td>
+      <td data-label="Market Price">{{ element.c_market_price }}</td>
+      <td data-label="CE Price">{{ element.c_ce_price }}</td>
+      <td >
+        <button (click)="modifyInfoCP(element.id)">Modify</button>
+        <button (click)="deleteInfoCP(element.id)">Delete</button>
+      </td>
+    </tr>
     <tr *ngIf="inputForm" [formGroup]="fbFormGroup">
       <td scope="row" data-label="Complexity Category">
         <input type="text" formControlName="c_complexity_category" />
@@ -38,14 +36,26 @@ mat-raised-button color="warn"
         <input type="text" formControlName="c_ce_price" />
       </td>
     </tr>
-    <tr *ngFor="let element of dataSource">
-      <td scope="row" data-label="Complexity Category">
-        {{ element.c_complexity_category }}
-      </td>
-      <td data-label="Description">{{ element.c_description }}</td>
-      <td data-label="Market Price">{{ element.c_market_price }}</td>
-      <td data-label="CE Price">{{ element.c_ce_price }}</td>
-    </tr>
   </tbody>
 </table>
-
+<br />
+<button *ngIf="addBtn" mat-raised-button color="accent" (click)="addDetials()">
+  Add Detials
+</button>
+<button
+  *ngIf="inputForm"
+  mat-raised-button
+  color="primary"
+  [disabled]="!fbFormGroup.valid"
+  (click)="saveDetials()"
+>
+  Save Detials
+</button>
+<button
+  *ngIf="inputForm"
+  mat-raised-button
+  color="warn"
+  (click)="cencledetials()"
+>
+  Cancel
+</button>

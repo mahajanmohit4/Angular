@@ -27,6 +27,9 @@ import { ClientCategorysPricingComponent } from './components/client-categorys-p
 import { HttpClientModule } from '@angular/common/http';
 import { AddClientCategorysPricingComponent } from './components/add-client-categorys-pricing/add-client-categorys-pricing.component';
 import { CategorysPricingsComponent } from './components/categorys-pricings/categorys-pricings.component';
+import { StoreModule } from '@ngrx/store';
+import { counterReducer } from './ngrx/counter/state/counter.reducer';
+import { ModifyCategoryPricingComponent } from './components/modify-category-pricing/modify-category-pricing.component';
 
 
 @NgModule({
@@ -50,6 +53,7 @@ import { CategorysPricingsComponent } from './components/categorys-pricings/cate
     ClientCategorysPricingComponent,
     AddClientCategorysPricingComponent,
     CategorysPricingsComponent,
+    ModifyCategoryPricingComponent,
    
   ],
   imports: [
@@ -60,7 +64,9 @@ import { CategorysPricingsComponent } from './components/categorys-pricings/cate
     ReactiveFormsModule,
     FormsModule,
     FlexLayoutModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,6 +6,7 @@ import { ClientCategorysPricingComponent } from './components/client-categorys-p
 import { ExpansionPanelComponent } from './components/expansion-panel/expansion-panel.component';
 import { FormComponent } from './components/form/form.component';
 import { GridListComponent } from './components/grid-list/grid-list.component';
+import { ModifyCategoryPricingComponent } from './components/modify-category-pricing/modify-category-pricing.component';
 import { StepperComponent } from './components/stepper/stepper.component';
 import { TableComponent } from './components/table/table.component';
 import { TabsComponent } from './components/tabs/tabs.component';
@@ -76,6 +77,9 @@ const routes: Routes = [
   },
   {
     path:"categorys_pricings", component:CategorysPricingsComponent
+  },
+  {
+    path:'modify_cp/:id', component:ModifyCategoryPricingComponent
   }
   // { path: "", redirectTo: "/grid-list", pathMatch: "full" }
 ];
