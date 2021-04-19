@@ -11,18 +11,18 @@
     </thead>
     <tbody>
    
-      <tr  [formGroup]="fbFormGroup" value="">
+      <tr  [formGroup]="fbFormGroup" >
         <td scope="row" data-label="Complexity Category">
-          <input type="text" formControlName="c_complexity_category" />
+          <input [(ngModel)] = "this.dataCP.c_complexity_category" type="text"  formControlName="c_complexity_category" />
         </td>
         <td data-label="Description">
-          <input type="text" formControlName="c_description" />
+          <input [(ngModel)] = "this.dataCP.c_description" type="text" formControlName="c_description" />
         </td>
         <td data-label="Market Price">
-          <input type="text" formControlName="c_market_price" />
+          <input [(ngModel)] = "this.dataCP.c_market_price" type="text" formControlName="c_market_price" />
         </td>
         <td data-label="CE Price">
-          <input type="text" formControlName="c_ce_price" />
+          <input [(ngModel)] = "this.dataCP.c_ce_price" type="text" formControlName="c_ce_price" />
         </td>
       </tr>
     </tbody>

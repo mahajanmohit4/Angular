@@ -11,11 +11,15 @@ import { ClientServiceService } from 'src/app/client_service/client-service.serv
 })
 export class ModifyCategoryPricingComponent implements OnInit {
   dataCP:ClientCategoryPricing;
+  c_complexity_category = '';
+  c_description = '';
+  c_market_price = '';
+  c_ce_price = '';
   public fbFormGroup = this.fb.group({
-    c_complexity_category:['', Validators.required],
-    c_description:['', Validators.required],
-    c_market_price:['', Validators.required],
-    c_ce_price:['', Validators.required]
+    c_complexity_category:[this.c_complexity_category, Validators.required],
+    c_description:[this.c_description, Validators.required],
+    c_market_price:[this.c_market_price, Validators.required],
+    c_ce_price:[this.c_ce_price, Validators.required]
   });
   id;
   constructor(private clientService: ClientServiceService,
@@ -26,8 +30,13 @@ export class ModifyCategoryPricingComponent implements OnInit {
     this.id = this.route.snapshot.params['id'];
     this.clientService.getCategoryPricingById(this.id).subscribe(res=>{
       console.log(res);
-      
+      this.dataCP = res;
+    console.log('before',this.dataCP.c_ce_price);
+      // this.c_complexity_category = (string)this.dataCP.c_complexity_category
     });
+
+    console.log('after',this.dataCP);
+    
   }
 
   submitForm(){
@@ -36,8 +45,9 @@ export class ModifyCategoryPricingComponent implements OnInit {
     console.log('data',data);
     this.clientService.modifyCategoryPricing(this.id,data).subscribe(res=>{
       console.log(res);
-      
-    })
+      alert('update successfully !!');
+      this.router.navigate(['categorys_pricings']);
+    });
   }
 
 }

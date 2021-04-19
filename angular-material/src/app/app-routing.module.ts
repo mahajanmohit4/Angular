@@ -3,9 +3,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { AddClientCategorysPricingComponent } from './components/add-client-categorys-pricing/add-client-categorys-pricing.component';
 import { CategorysPricingsComponent } from './components/categorys-pricings/categorys-pricings.component';
 import { ClientCategorysPricingComponent } from './components/client-categorys-pricing/client-categorys-pricing.component';
+import { TeamMemberComponent } from './components/Client-Components/team-member/team-member.component';
 import { ExpansionPanelComponent } from './components/expansion-panel/expansion-panel.component';
 import { FormComponent } from './components/form/form.component';
 import { GridListComponent } from './components/grid-list/grid-list.component';
+import { HeaderBarComponent } from './components/header-bar/header-bar.component';
 import { ModifyCategoryPricingComponent } from './components/modify-category-pricing/modify-category-pricing.component';
 import { StepperComponent } from './components/stepper/stepper.component';
 import { TableComponent } from './components/table/table.component';
@@ -80,6 +82,12 @@ const routes: Routes = [
   },
   {
     path:'modify_cp/:id', component:ModifyCategoryPricingComponent
+  },
+  {
+    path:'header', component:HeaderBarComponent
+  },
+  {
+    path: 'team-member', component:TeamMemberComponent
   }
   // { path: "", redirectTo: "/grid-list", pathMatch: "full" }
 ];

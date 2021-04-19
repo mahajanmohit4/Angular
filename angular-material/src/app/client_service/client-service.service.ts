@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ClientCategoryPricing } from '../class/client-category-pricing';
+import { TeamMember } from '../class/team-member';
 
 @Injectable({
   providedIn: 'root'
@@ -30,4 +31,11 @@ export class ClientServiceService {
   getCategoryPricingById(id:number){
     return this.httpClient.get<ClientCategoryPricing>(`${this.c_category_princing_url}/${id}`);
   }
+
+  team_member_url = 'http://localhost:3000/c_team_members';
+  createTeamMember(team){
+    return this.httpClient.post(`${this.team_member_url}`,team);
+  }
+
+
 }

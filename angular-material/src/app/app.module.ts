@@ -30,6 +30,7 @@ import { CategorysPricingsComponent } from './components/categorys-pricings/cate
 import { StoreModule } from '@ngrx/store';
 import { counterReducer } from './ngrx/counter/state/counter.reducer';
 import { ModifyCategoryPricingComponent } from './components/modify-category-pricing/modify-category-pricing.component';
+import { TeamMemberComponent } from './components/Client-Components/team-member/team-member.component';
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import { ModifyCategoryPricingComponent } from './components/modify-category-pri
     AddClientCategorysPricingComponent,
     CategorysPricingsComponent,
     ModifyCategoryPricingComponent,
+    TeamMemberComponent,
    
   ],
   imports: [

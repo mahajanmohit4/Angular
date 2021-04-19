@@ -25,6 +25,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class TabsComponent implements OnInit {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns1: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;
   constructor() { }
 
