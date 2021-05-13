@@ -11,7 +11,11 @@ import { HeaderBarComponent } from './components/header-bar/header-bar.component
 import { ModifyCategoryPricingComponent } from './components/modify-category-pricing/modify-category-pricing.component';
 import { StepperComponent } from './components/stepper/stepper.component';
 import { TableComponent } from './components/table/table.component';
+import { ChildListComponent } from './components/tabs/child-list/child-list.component';
+import { DemoListComponent } from './components/tabs/demo-list/demo-list.component';
 import { TabsComponent } from './components/tabs/tabs.component';
+import { MyCounterComponent } from './ngrx/counter/my-counter/my-counter.component';
+import { BbokComponent } from './ngrx/state/bbok/bbok.component';
 import { DemoComponent } from './rxjs_components/demo/demo.component';
 import { FormEventComponent } from './rxjs_components/form-event/form-event.component';
 import { ObservableComponent } from './rxjs_components/observable/observable.component';
@@ -25,75 +29,100 @@ import { RestrictionService } from './services/restriction.service';
 
 const routes: Routes = [
   {
-    path: "grid-list",
+    path: 'grid-list',
     component: GridListComponent,
-    canActivate:[AuthorrestricService]
-
+    canActivate: [AuthorrestricService],
   },
   {
-    path: "stepper",
-    component: StepperComponent
+    path: 'stepper',
+    component: StepperComponent,
   },
   {
-    path: "tabs",
-    component: TabsComponent
+    path: 'tabs',
+    component: TabsComponent,
+    children: [
+      {
+        path: '',
+        component: DemoListComponent,
+      },
+      {
+        path: 'child',
+        component: ChildListComponent,
+      },
+    ],
   },
   {
-    path: "expansion-panel",
-    component: ExpansionPanelComponent
+    path: 'expansion-panel',
+    component: ExpansionPanelComponent,
   },
   {
-    path: "table",
+    path: 'table',
     component: TableComponent,
-    pathMatch: "full"
+    pathMatch: 'full',
   },
   {
-    path: "form",
-    component: FormComponent
+    path: 'form',
+    component: FormComponent,
   },
   {
-    path: "demo",
-    component: DemoComponent
-  },  
-  {path: "form-event", component: FormEventComponent},
+    path: 'demo',
+    component: DemoComponent,
+  },
+  { path: 'form-event', component: FormEventComponent },
   {
-    path: "of-from", component: OfFromComponent
+    path: 'of-from',
+    component: OfFromComponent,
   },
   {
-    path:"to-array", component:ToArrayComponent
+    path: 'to-array',
+    component: ToArrayComponent,
   },
   {
-    path: "observable", component:ObservableComponent
+    path: 'observable',
+    component: ObservableComponent,
   },
   {
-    path:"operator", component:OperatorsComponent
+    path: 'operator',
+    component: OperatorsComponent,
   },
   {
-    path:"operator2", component:Operator2Component
+    path: 'operator2',
+    component: Operator2Component,
   },
   {
-    path:"c_categorys_pricing", component:ClientCategorysPricingComponent
+    path: 'c_categorys_pricing',
+    component: ClientCategorysPricingComponent,
   },
   {
-    path:"add-client", component:AddClientCategorysPricingComponent
+    path: 'add-client',
+    component: AddClientCategorysPricingComponent,
   },
   {
-    path:"categorys_pricings", component:CategorysPricingsComponent
+    path: 'categorys_pricings',
+    component: CategorysPricingsComponent,
   },
   {
-    path:'modify_cp/:id', component:ModifyCategoryPricingComponent
+    path: 'modify_cp/:id',
+    component: ModifyCategoryPricingComponent,
   },
   {
-    path:'header', component:HeaderBarComponent
+    path: 'header',
+    component: HeaderBarComponent,
   },
   {
-    path: 'team-member', component:TeamMemberComponent
-  }
+    path: 'team-member',
+    component: TeamMemberComponent,
+  },
+  {
+    path: 'ngrx',
+    // component: MyCounterComponent,
+    component: BbokComponent,
+  },
   // { path: "", redirectTo: "/grid-list", pathMatch: "full" }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

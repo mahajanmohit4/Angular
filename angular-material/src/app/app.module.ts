@@ -28,10 +28,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddClientCategorysPricingComponent } from './components/add-client-categorys-pricing/add-client-categorys-pricing.component';
 import { CategorysPricingsComponent } from './components/categorys-pricings/categorys-pricings.component';
 import { StoreModule } from '@ngrx/store';
-import { counterReducer } from './ngrx/counter/state/counter.reducer';
+
 import { ModifyCategoryPricingComponent } from './components/modify-category-pricing/modify-category-pricing.component';
 import { TeamMemberComponent } from './components/Client-Components/team-member/team-member.component';
-
+import { DemoListComponent } from './components/tabs/demo-list/demo-list.component';
+import { ChildListComponent } from './components/tabs/child-list/child-list.component';
+import { counterReducer } from './ngrx/counter/counter.reducer';
+import { MyCounterComponent } from './ngrx/counter/my-counter/my-counter.component';
+import { BookListComponent } from './ngrx/state/book-list/book-list.component';
+import { booksReducer } from './ngrx/state/books.reducer';
+import { collectionReducer } from './ngrx/state/collection.reducer';
+import { BookCollectionComponent } from './ngrx/state/book-collection/book-collection.component';
+import { BbokComponent } from './ngrx/state/bbok/bbok.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +64,12 @@ import { TeamMemberComponent } from './components/Client-Components/team-member/
     CategorysPricingsComponent,
     ModifyCategoryPricingComponent,
     TeamMemberComponent,
-   
+    DemoListComponent,
+    ChildListComponent,
+    MyCounterComponent,
+    BookListComponent,
+    BookCollectionComponent,
+    BbokComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,10 +80,11 @@ import { TeamMemberComponent } from './components/Client-Components/team-member/
     FormsModule,
     FlexLayoutModule,
     HttpClientModule,
-    StoreModule
-    
+    StoreModule,
+    StoreModule.forRoot({ count: counterReducer }),
+    StoreModule.forRoot({ books: booksReducer, collection: collectionReducer }),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
