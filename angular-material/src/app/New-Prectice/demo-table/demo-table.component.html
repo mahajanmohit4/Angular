@@ -1,0 +1,41 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col" *ngFor="let disCol of disColumn">{{ disCol }}</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let disRow of dataArr; let i = index">
+      <td>
+        <input
+          type="text"
+          (change)="onInsert($event.target.value, i, 'a')"
+          value="{{ disRow.a }}"
+        />
+        <label>{{ i }} </label>
+      </td>
+      <td>
+        <input
+          type="text"
+          (change)="onInsert($event.target.value, i, 'b')"
+          value="{{ disRow.b }}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          (change)="onInsert($event.target.value, i, 'c')"
+          value="{{ disRow.c }}"
+        />
+      </td>
+      <td>
+        <input
+          type="text"
+          (change)="onInsert($event.target.value, i, 'd')"
+          value="{{ disRow.d }}"
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>

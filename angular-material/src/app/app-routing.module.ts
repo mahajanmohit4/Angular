@@ -118,6 +118,13 @@ const routes: Routes = [
     // component: MyCounterComponent,
     component: BbokComponent,
   },
+  {
+    path: 'demotable',
+    loadChildren: () =>
+      import('../app/New-Prectice/new-practice.module').then(
+        (m) => m.NewPracticeModule
+      ),
+  },
   // { path: "", redirectTo: "/grid-list", pathMatch: "full" }
 ];
 
