@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Demotable } from './model/demotable.model';
 import { DemotableService } from './service/demotable.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { DemotableService } from './service/demotable.service';
 export class DemoTableComponent implements OnInit {
   constructor(private dataService: DemotableService) {}
   data;
-  data1;
+  data1 = {};
   disColumn;
   ngOnInit(): void {
     // this.jsonData();
@@ -17,7 +18,81 @@ export class DemoTableComponent implements OnInit {
     // this.demo1();
     // this.demo2();
     this.demo3();
+    this.newWork();
+    this.demo4();
   }
+  employee;
+  data07;
+  demo4() {
+    this.dataService.getData().subscribe((res) => {
+      console.log('JSON DATA ++++++ ', res);
+      console.log('row one ', res['20 k']['G1U']);
+    });
+    this.employee = [
+      {
+        idemployee: 1,
+        name: 'Ernest',
+        surename: 'Pająk',
+        role: 'Obsługa Baru',
+        employeehours: [
+          {
+            idemployeehours: 1,
+            date: '2019-01-10T23:00:00.000+0000',
+            quantity: 8.0,
+          },
+        ],
+      },
+    ];
+
+    this.data07 = [
+      {
+        'a a': [
+          {
+            'a a': 1,
+            b: 1,
+            c: 1,
+            d: 1,
+          },
+        ],
+        b: [
+          {
+            'a a': 2,
+            b: 2,
+            c: 2,
+            d: 2,
+          },
+        ],
+      },
+    ];
+  }
+  isArray(value) {
+    return value instanceof Array;
+  }
+
+  //Work on Data
+  // newData: Demotable = new Demotable();
+  newData: any;
+  demoRow: string[] = ['a', 'b', 'c', 'd'];
+  addRowCol: boolean = false;
+  colName = '';
+  newWork() {
+    this.newData = this.data;
+    console.log('New Data is ===> ', this.newData);
+  }
+  submit() {
+    let mohit: any = 'mauli';
+    this.newData.a.mohit = 'asdf';
+    console.log('latest new data ++++++++', this.newData);
+  }
+  onSelectFile(event: any) {
+    console.log('event +++ ');
+    this.newData.a.event.target.value = 'asdf';
+  }
+  addData() {
+    this.addRowCol = true;
+  }
+
+  // Old Work
   dataArr = [];
   onInsert(val, index, key) {
     console.log('inserted val', val);
@@ -25,18 +100,34 @@ export class DemoTableComponent implements OnInit {
     console.log('key : ', key);
     if (key == 'a') {
       console.log('arr index val : ', this.dataArr[index].a);
+      this.dataArr[index].a = val;
+      console.log('new arr ', this.dataArr);
     } else if (key == 'b') {
       console.log('arr index val : ', this.dataArr[index].b);
+      this.dataArr[index].b = val;
     } else if (key == 'c') {
       console.log('arr index val : ', this.dataArr[index].c);
+      this.dataArr[index].c = val;
     } else if (key == 'd') {
       console.log('arr index val : ', this.dataArr[index].d);
+      this.dataArr[index].d = val;
     }
+    this.data1 = {
+      a: this.dataArr[0],
+      b: this.dataArr[1],
+      c: this.dataArr[2],
+      d: this.dataArr[3],
+    };
+    console.log('letest data ==> ', this.data1);
   }
   arrIndex(index) {
     console.log('index : ', index);
   }
   demo3() {
+    // this.dataService.getData1().subscribe((res) => {
+    //   this.data = res;
+    //   console.log('data1 --> ', res);
+    // });
     this.data = {
       a: {
         a: 1,
@@ -63,15 +154,16 @@ export class DemoTableComponent implements OnInit {
         d: 4,
       },
     };
+    this.data1 = [this.data];
     this.data.a.a = 123;
     this.data1 = this.data;
     console.log('data1 --> ', this.data1);
-
     // console.log('sadf ', this.data.a.a);
     this.dataArr.push(this.data.a);
     this.dataArr.push(this.data.b);
     this.dataArr.push(this.data.c);
     this.dataArr.push(this.data.d);
+    console.log('data array --> ', this.dataArr);
     var k = Object.keys(this.data);
     this.disColumn = k;
   }

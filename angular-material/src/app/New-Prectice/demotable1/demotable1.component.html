@@ -1,0 +1,28 @@
+<table style="border: 1px solid">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th scope="col" *ngFor="let column of header; let h = index">
+        <input
+          type="text"
+          (change)="onUpdateColumn($event.target.value, h)"
+          value="{{ column }}"
+        />
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of RowsData; let i = index">
+      <th>
+        {{ header[i] }}
+      </th>
+      <td *ngFor="let column of header; let j = index">
+        <input
+          type="text"
+          (change)="onInsert($event.target.value, i, j)"
+          value="{{ row[column] }}"
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,15 +1,239 @@
+<!-- table works
+<input [(ngModel)]="newData.a.a" type="text" value="{{ newData.a.a }}" />
+<input type="text" (change)="onSelectFile($event)" /> -->
+
+<!-- <div *ngFor="let item of data07">
+  <div *ngFor="let obj of item | keyvalue" class="well">
+    Key: <b>{{ obj.key }}</b> and Value: <b>{{ obj.value }}</b>
+    <div *ngFor="let i of obj.value">
+      <div *ngFor="let o of i | keyvalue" class="well">
+        Key: <b>{{ o.key }}</b> and Value: <b>{{ o.value }}</b>
+      </div>
+    </div>
+  </div>
+</div> -->
 <table class="table">
   <thead>
     <tr>
+      <th scope="col">a</th>
+      <th scope="col">b</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of data07">
+      <span *ngFor="let obj of item | keyvalue" class="well">
+        <td *ngFor="let i of obj.value">
+          <span *ngFor="let o of i | keyvalue" class="well">
+            <b>{{ o.value }}</b></span
+          >
+        </td>
+      </span>
+    </tr>
+  </tbody>
+</table>
+<!-- OLD -->
+<button (click)="submit()">Submit</button>
+<div>
+  <button (click)="addData()">ADD</button>
+</div>
+<!-- TABLE  -->
+<table class="table" id="customers">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col" *ngFor="let disCol of disColumn">{{ disCol }}</th>
+      <th scope="col" *ngIf="addRowCol">
+        <input
+          type="text"
+          [(ngModel)]="colName"
+          style="width: 100px"
+          value="{{ colName }}"
+        />
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">a</th>
+      <td>
+        <input
+          [(ngModel)]="newData.a.a"
+          type="text"
+          style="width: 50px"
+          value="{{ newData.a.a }}"
+        />
+      </td>
+      <td>
+        <input
+          [(ngModel)]="newData.a.b"
+          type="text"
+          value="{{ newData.a.b }}"
+        />
+      </td>
+      <td>
+        <input
+          [(ngModel)]="newData.a.c"
+          type="text"
+          value="{{ newData.a.c }}"
+        />
+      </td>
+      <td>
+        <input
+          [(ngModel)]="newData.a.d"
+          type="text"
+          value="{{ newData.a.d }}"
+        />
+      </td>
+      <td *ngIf="addRowCol">
+        <input type="text" />
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">b</th>
+      <td>
+        <input
+          [(ngModel)]="newData.b.a"
+          type="text"
+          value="{{ newData.b.a }}"
+        />
+      </td>
+      <td>
+        <input
+          [(ngModel)]="newData.b.b"
+          type="text"
+          value="{{ newData.b.b }}"
+        />
+      </td>
+      <td>
+        <input
+          [(ngModel)]="newData.b.c"
+          type="text"
+          value="{{ newData.b.c }}"
+        />
+      </td>
+      <td>
+        <input
+          [(ngModel)]="newData.b.d"
+          type="text"
+          value="{{ newData.b.d }}"
+        />
+      </td>
+      <td *ngIf="addRowCol">
+        <input type="text" />
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">c</th>
+      <td>
+        <input
+          [(ngModel)]="newData.c.a"
+          type="text"
+          value="{{ newData.c.a }}"
+        />
+      </td>
+      <td>
+        <input
+          [(ngModel)]="newData.c.b"
+          type="text"
+          value="{{ newData.c.b }}"
+        />
+      </td>
+      <td>
+        <input
+          [(ngModel)]="newData.c.c"
+          type="text"
+          value="{{ newData.c.c }}"
+        />
+      </td>
+      <td>
+        <input
+          [(ngModel)]="newData.c.d"
+          type="text"
+          value="{{ newData.c.d }}"
+        />
+      </td>
+      <td *ngIf="addRowCol">
+        <input type="text" />
+      </td>
+    </tr>
+
+    <tr>
+      <th scope="row">d</th>
+      <td>
+        <input
+          [(ngModel)]="newData.d.a"
+          type="text"
+          value="{{ newData.d.a }}"
+        />
+      </td>
+      <td>
+        <input
+          [(ngModel)]="newData.d.b"
+          type="text"
+          value="{{ newData.d.b }}"
+        />
+      </td>
+      <td>
+        <input
+          [(ngModel)]="newData.d.c"
+          type="text"
+          value="{{ newData.d.c }}"
+        />
+      </td>
+      <td>
+        <input
+          [(ngModel)]="newData.d.d"
+          type="text"
+          value="{{ newData.d.d }}"
+        />
+      </td>
+      <td *ngIf="addRowCol">
+        <input type="text" />
+      </td>
+    </tr>
+
+    <tr *ngIf="addRowCol">
+      <th scope="row">
+        <input
+          type="text"
+          [(ngModel)]="colName"
+          style="width: 100px"
+          value="{{ colName }}"
+        />
+      </th>
+      <td>
+        <input type="text" />
+      </td>
+      <td>
+        <input type="text" />
+      </td>
+      <td>
+        <input type="text" />
+      </td>
+      <td>
+        <input type="text" />
+      </td>
+      <td>
+        <input type="text" />
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
       <th scope="col" *ngFor="let disCol of disColumn">{{ disCol }}</th>
     </tr>
   </thead>
 
   <tbody>
     <tr *ngFor="let disRow of dataArr; let i = index">
+      <th scope="row">a</th>
       <td>
         <input
-          type="text"
+          type="number"
           (change)="onInsert($event.target.value, i, 'a')"
           value="{{ disRow.a }}"
         />
@@ -17,25 +241,25 @@
       </td>
       <td>
         <input
-          type="text"
+          type="number"
           (change)="onInsert($event.target.value, i, 'b')"
           value="{{ disRow.b }}"
         />
       </td>
       <td>
         <input
-          type="text"
+          type="number"
           (change)="onInsert($event.target.value, i, 'c')"
           value="{{ disRow.c }}"
         />
       </td>
       <td>
         <input
-          type="text"
+          type="number"
           (change)="onInsert($event.target.value, i, 'd')"
           value="{{ disRow.d }}"
         />
       </td>
     </tr>
   </tbody>
-</table>
+</table> -->

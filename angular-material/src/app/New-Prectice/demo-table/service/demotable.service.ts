@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class DemotableService {
-  private base_url = 'http://localhost:3000/data';
+  private base_url = 'http://localhost:3000/posts';
   private base_url1 = 'http://localhost:3000/new_data';
   constructor(private httpClient: HttpClient) {}
   getData(): Observable<any> {
@@ -14,5 +14,8 @@ export class DemotableService {
   }
   getData1(): Observable<any> {
     return this.httpClient.get(this.base_url1);
+  }
+  updateData(data): Observable<any> {
+    return this.httpClient.post(this.base_url1, data);
   }
 }
