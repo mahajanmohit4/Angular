@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DemotableService } from '../demo-table/service/demotable.service';
 
 @Component({
   selector: 'app-demotable1',
@@ -24,9 +25,24 @@ export class Demotable1Component implements OnInit {
       Status3: 'I',
     },
   ];
-  constructor() {}
+  constructor(private demoTableService: DemotableService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.demoTableService.getData().subscribe((res) => {
+      console.log('Data *** ', res);
+      const header = Object.keys(res);
+      console.log('Header Array : ', header);
+      const rowData = [];
+      for (let i = 0; i < header.length; i++) {
+        rowData.push(res[header[i]]);
+      }
+      console.log('Row Data : ', rowData);
+    });
+    var obj = { name: 'Jeeva', age: '22', gender: 'Male' };
+    console.log('Object : ', obj);
+
+    console.log(Object.keys(obj));
+  }
   onInsert(val, rowIndex, colIndex) {
     console.log('Inserted Value : ', val);
     console.log('Row Index : ', rowIndex);
@@ -61,5 +77,19 @@ export class Demotable1Component implements OnInit {
   renameKey(obj, oldKey, newKey) {
     obj[newKey] = obj[oldKey];
     delete obj[oldKey];
+  }
+  addRowCol() {
+    this.header.push('');
+    console.log('New Header : ', this.header);
+    let dummyJSON: any = {};
+    for (let i = 0; i < this.header.length; i++) {
+      console.log('header ', i, ' : ', this.header[i]);
+      var newKey = this.header[i];
+      var newVal = '';
+      dummyJSON[newKey] = newVal;
+    }
+    console.log('Dummny JSON : ', dummyJSON);
+
+    this.RowsData.push(dummyJSON);
   }
 }
