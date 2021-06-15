@@ -1,13 +1,13 @@
 <button (click)="addRowCol()">ADD</button>
-
-<table style="border: 1px solid">
+<button (click)="submit()">Submit</button>
+<table style="border: 1px solid" id="customers">
   <thead>
     <tr>
       <th>#</th>
       <th scope="col" *ngFor="let column of header; let h = index">
         <input
           type="text"
-          (change)="onUpdateColumn($event.target.value, h)"
+          (blur)="onUpdateColumn($event.target.value, h)"
           value="{{ column }}"
         />
       </th>
@@ -24,6 +24,9 @@
           (change)="onInsert($event.target.value, i, j)"
           value="{{ row[column] }}"
         />
+      </td>
+      <td>
+        <button (click)="deleteRowCol(i)">Delete</button>
       </td>
     </tr>
   </tbody>

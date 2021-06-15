@@ -7,41 +7,63 @@ import { DemotableService } from '../demo-table/service/demotable.service';
   styleUrls: ['./demotable1.component.css'],
 })
 export class Demotable1Component implements OnInit {
-  header = ['Status1', 'Status2', 'Status3'];
-  RowsData = [
-    {
-      Status1: 'A',
-      Status2: 'B',
-      Status3: 'C',
-    },
-    {
-      Status1: 'D',
-      Status2: 'E',
-      Status3: 'F',
-    },
-    {
-      Status1: 'G',
-      Status2: 'H',
-      Status3: 'I',
-    },
-  ];
+  // header = ['Status1', 'Status2', 'Status3'];
+  // RowsData = [
+  //   {
+  //     Status1: 'A',
+  //     Status2: 'B',
+  //     Status3: 'C',
+  //   },
+  //   {
+  //     Status1: 'D',
+  //     Status2: 'E',
+  //     Status3: 'F',
+  //   },
+  //   {
+  //     Status1: 'G',
+  //     Status2: 'H',
+  //     Status3: 'I',
+  //   },
+  // ];
+  header = [];
+  RowsData = [];
   constructor(private demoTableService: DemotableService) {}
 
   ngOnInit(): void {
+    let obj = { a: 1 };
+    console.log('Check Empty ---> ', Object.keys(obj).length === 0);
+
     this.demoTableService.getData().subscribe((res) => {
       console.log('Data *** ', res);
-      const header = Object.keys(res);
-      console.log('Header Array : ', header);
-      const rowData = [];
-      for (let i = 0; i < header.length; i++) {
-        rowData.push(res[header[i]]);
-      }
-      console.log('Row Data : ', rowData);
-    });
-    var obj = { name: 'Jeeva', age: '22', gender: 'Male' };
-    console.log('Object : ', obj);
+      this.header = Object.keys(res);
+      console.log('Header Array : ', this.header);
 
-    console.log(Object.keys(obj));
+      for (let i = 0; i < this.header.length; i++) {
+        this.RowsData.push(res[this.header[i]]);
+      }
+      console.log('Row Data : ', this.RowsData);
+    });
+  }
+  submit() {
+    let dummyJSON: any = {};
+    for (let i = 0; i < this.header.length; i++) {
+      // console.log('header ', i, ' : ', this.header[i]);
+      var newKey = this.header[i];
+      var newVal = this.RowsData[i];
+      dummyJSON[newKey] = newVal;
+    }
+    console.log('Latest Data ===> ', dummyJSON);
+  }
+  deleteRowCol(rowIndex) {
+    console.log('Delete Row Index : ', rowIndex);
+    let key = this.header[rowIndex];
+    this.header.splice(rowIndex, 1);
+    this.RowsData.splice(rowIndex, 1);
+    this.RowsData.forEach((obj) => this.deleteKey(obj, key));
+    console.log('Row Data ==> ', this.RowsData);
+  }
+  deleteKey(obj, key) {
+    delete obj[key];
   }
   onInsert(val, rowIndex, colIndex) {
     console.log('Inserted Value : ', val);
@@ -83,7 +105,7 @@ export class Demotable1Component implements OnInit {
     console.log('New Header : ', this.header);
     let dummyJSON: any = {};
     for (let i = 0; i < this.header.length; i++) {
-      console.log('header ', i, ' : ', this.header[i]);
+      // console.log('header ', i, ' : ', this.header[i]);
       var newKey = this.header[i];
       var newVal = '';
       dummyJSON[newKey] = newVal;
