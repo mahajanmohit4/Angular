@@ -1,1 +1,40 @@
 <p>demotable2 works!</p>
+<table mat-table id="tableID">
+  <thead style="width: 100%">
+    <tr>
+      <th></th>
+      <th scope="col" *ngFor="let column of header; let h = index">
+        {{ column }}
+      </th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of RowsData; let i = index">
+      <th>
+        <textarea
+          type="text"
+          class="tableInput"
+          style="width: 70px; overflow: hidden; background-color: #a1c0ec"
+          (change)="onUpdateColumn($event.target.value, i)"
+          value="{{ header[i] }}"
+        ></textarea>
+      </th>
+      <td *ngFor="let column of header; let j = index">
+        <input
+          class="tableInput"
+          type="text"
+          style="width: 40px"
+          (change)="onInsert($event.target.value, i, j)"
+          value="{{ row[column] }}"
+        />
+      </td>
+
+      <td>
+        <a (click)="deleteRowCol(i)" type="button" color="warn"
+          ><i class="material-icons" id="deleteIcon">delete</i>
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>

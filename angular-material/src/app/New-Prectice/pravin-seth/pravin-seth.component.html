@@ -1,0 +1,23 @@
+<p>pravin-seth works!</p>
+
+<h1>Date : {{ date | date: "dd-MM-yyyy" }}</h1>
+
+<button (click)="OnClickBtn()">One Month</button>
+
+<div>
+  From: <input type="text" value="{{ date1 | date: 'dd-MM-yyyy' }}" /> To:
+  <input type="text" value="{{ date | date: 'dd-MM-yyyy' }}" />
+</div>
+
+<br />
+<br />
+<div>
+  From: <input type="date" [(ngModel)]="demoDate1" value="demoDate1" /> To:
+  <input
+    type="date"
+    [(ngModel)]="demoDate"
+    max="{{ demoDate1 }}"
+    value="demoDate1"
+  />
+</div>
+<button (click)="demoDateFn()">Demo Date</button>
