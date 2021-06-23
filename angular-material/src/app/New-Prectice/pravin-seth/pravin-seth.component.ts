@@ -12,10 +12,12 @@ export class PravinSethComponent implements OnInit {
   demoDate1;
   ngOnInit(): void {
     this.OnClickBtn();
+    this.sixMonthAgoDate();
   }
   date;
   date1;
-
+  month;
+  sixMonthOldDate;
   toDayDate() {
     this.date = new Date();
     console.log('Date = ' + this.date); //Date = Tue Feb 05 2019 12:05:22 GMT+0530 (IST)
@@ -31,17 +33,34 @@ export class PravinSethComponent implements OnInit {
     this.demoDate1 = this.formatDate(this.date1);
   }
 
+  sixMonthAgoDate() {
+    const d = new Date();
+    
+    d.setMonth(d.getMonth() - 6);
+    this.sixMonthOldDate = this.formatDate(d);
+    console.log('sixMonthOldDate ++++++ ', this.sixMonthOldDate);
+    
+  }
+
   OnClickBtn() {
     this.toDayDate();
     this.oneMonthAgoDate();
 
-    this.monthDiff(this.date, this.date1)
+   
   }
 
   demoDateFn() {
-    console.log('Demo Date : ', this.demoDate);
+    console.log('Demo Date1 : ', this.demoDate);
+    console.log('Demo Date2: ', this.demoDate1);
 
-    console.log('New Date : ', this.formatDate(this.date));
+    const d1 = new Date(this.demoDate);
+    const d2 = new Date(this.demoDate1)
+
+    console.log(d1, ' --- ', d2);  
+
+        
+    console.log('Calculated Months :-- > ', this.monthDiff(d1, d2));
+    this.month =  this.monthDiff(d1, d2);
   }
 
   formatDate(date) {
@@ -56,8 +75,18 @@ export class PravinSethComponent implements OnInit {
     return [year, month, day].join('-');
   }
 
-  monthDiff(dateFrom, dateTo) {
-    return dateTo.getMonth() - dateFrom.getMonth() + 
-      (12 * (dateTo.getFullYear() - dateFrom.getFullYear()))
+  monthDiff(d2, d1) {
+    var months;
+    console.log('d2 --> ',d2);
+    console.log('d1 --> ',d1);
+    
+    console.log(d2.getFullYear());
+    
+    months = (d2.getFullYear() - d1.getFullYear()) * 12;
+    console.log('Months1 : ',d1.getMonth());
+    console.log('Months2 : ',d2.getMonth());
+    months -= d1.getMonth();
+    months += d2.getMonth();
+    return months ;
    }
 }

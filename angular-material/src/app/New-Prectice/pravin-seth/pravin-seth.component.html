@@ -12,7 +12,7 @@
 <br />
 <br />
 <div>
-  From: <input type="date" [(ngModel)]="demoDate1" value="demoDate1" /> To:
+  From: <input type="date" [(ngModel)]="demoDate1" min="{{sixMonthOldDate}}" value="demoDate1" /> To:
   <input
     type="date"
     [(ngModel)]="demoDate"
@@ -21,3 +21,12 @@
   />
 </div>
 <button (click)="demoDateFn()">Demo Date</button>
+
+
+<div *ngIf="month == 1">
+  <h2>One Month</h2>
+</div>
+
+<div *ngIf="month == 3">
+  <h2>Three Month</h2>
+</div>

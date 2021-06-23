@@ -10,12 +10,14 @@ import { MatTableModule } from '@angular/material/table';
 import { PravinSethComponent } from './pravin-seth/pravin-seth.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatrixTableComponent } from './matrix-table/matrix-table.component';
 @NgModule({
   declarations: [
     DemoTableComponent,
     Demotable1Component,
     Demotable2Component,
     PravinSethComponent,
+    MatrixTableComponent,
   ],
   imports: [
     CommonModule,
