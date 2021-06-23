@@ -11,6 +11,8 @@ import { PravinSethComponent } from './pravin-seth/pravin-seth.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatrixTableComponent } from './matrix-table/matrix-table.component';
+import { MatrixTable1Component } from './matrix-table1/matrix-table1.component';
+
 @NgModule({
   declarations: [
     DemoTableComponent,
@@ -18,6 +20,7 @@ import { MatrixTableComponent } from './matrix-table/matrix-table.component';
     Demotable2Component,
     PravinSethComponent,
     MatrixTableComponent,
+    MatrixTable1Component,
   ],
   imports: [
     CommonModule,
