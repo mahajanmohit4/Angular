@@ -12,6 +12,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatrixTableComponent } from './matrix-table/matrix-table.component';
 import { MatrixTable1Component } from './matrix-table1/matrix-table1.component';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { MatrixTable1Component } from './matrix-table1/matrix-table1.component';
     MatDatepickerModule,
     ReactiveFormsModule,
     MatFormFieldModule,
+    MatInputModule,
   ],
 })
 export class NewPracticeModule {}

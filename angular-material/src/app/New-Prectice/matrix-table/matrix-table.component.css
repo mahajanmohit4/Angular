@@ -8,9 +8,9 @@
 thead th {
   top: 0;
   position: sticky;
-  background-color: 11#666;
-  color: litiff;
-  z-index: 20;
+  /* background-color: #666; */
+
+  /* z-index: 20; */
   min-height: 30px;
   height: 30px;
   text-align: left;
@@ -37,9 +37,9 @@ tr {
   left: 80px;
   position: sticky;
 }
-.fixed-header {
+/* .fixed-header {
   z-index: 50;
-}
+} */
 tr:nth-child(even) td[scope="row"] {
   background-color: #f2f2f2;
 }

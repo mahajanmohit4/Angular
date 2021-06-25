@@ -1,1 +1,53 @@
-<p>matrix-table1 works!</p>
+<div style="max-width: 700px; overflow: auto">
+  <table id="tableID" style="overflow-x: scroll">
+    <thead>
+      <tr>
+        <th style="left: 0; position: sticky"></th>
+        <th
+          scope="col"
+          *ngFor="let column of header; let h = index"
+          style="min-width: 60px"
+        >
+          {{ column }}
+        </th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of RowsData; let i = index">
+        <th style="width: 150px; left: 0; position: sticky">
+          <textarea
+            matInput
+            cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="1"
+            cdkAutosizeMaxRows="3"
+            type="text"
+            class="tableInput"
+            style="
+              width: 150px;
+              background-color: #a1c0ec;
+              overflow: hidden !important;
+            "
+            (change)="onUpdateColumn($event.target.value, i)"
+            value="{{ header[i] }}"
+          ></textarea>
+        </th>
+        <td *ngFor="let column of header; let j = index" style="width: 60px">
+          <input
+            class="tableInput"
+            type="text"
+            (change)="onInsert($event.target.value, i, j)"
+            value="{{ row[column] }}"
+          />
+        </td>
+
+        <td>
+          <a (click)="deleteRowCol(i)" type="button" color="warn"
+            ><i class="material-icons" id="deleteIcon">delete</i>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
