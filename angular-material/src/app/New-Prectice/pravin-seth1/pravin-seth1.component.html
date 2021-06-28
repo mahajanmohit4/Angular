@@ -1,0 +1,43 @@
+<div style="margin: 5px">
+  <h3><button (click)="oneMonthAgoDate()">One Month</button></h3>
+  <span *ngIf="checkMonth === 1">Tik</span>
+</div>
+<div style="margin: 5px">
+  <h3><button (click)="threeMonthAgoDate()">Three Month</button></h3>
+  <span *ngIf="checkMonth === 3">Tik</span>
+</div>
+<div style="margin: 5px">
+  <h3><button (click)="sixMonthAgoDate()">Six Month</button></h3>
+  <span *ngIf="checkMonth === 6">Tik</span>
+</div>
+<div style="margin: 5px">
+  <h3><button>Custom</button></h3>
+  <span
+    *ngIf="
+      checkMonth == 0 || checkMonth == 2 || checkMonth == 4 || checkMonth == 5
+    "
+    >Tik</span
+  >
+</div>
+
+<!-- Date Input  -->
+<div>
+  From:
+  <input
+    type="date"
+    (change)="checkCustom()"
+    [(ngModel)]="fromDate"
+    min="{{ sixMonthOldDate }}"
+    max="{{ currentDate }}"
+    value=""
+  />
+  To:
+  <input
+    type="date"
+    (change)="checkCustom()"
+    [(ngModel)]="toDate"
+    min="{{ sixMonthOldDate }}"
+    max="{{ currentDate }}"
+    value=""
+  />
+</div>

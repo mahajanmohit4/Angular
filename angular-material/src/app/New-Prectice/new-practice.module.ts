@@ -13,6 +13,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatrixTableComponent } from './matrix-table/matrix-table.component';
 import { MatrixTable1Component } from './matrix-table1/matrix-table1.component';
 import { MatInputModule } from '@angular/material/input';
+import { PravinSeth1Component } from './pravin-seth1/pravin-seth1.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { MatInputModule } from '@angular/material/input';
     PravinSethComponent,
     MatrixTableComponent,
     MatrixTable1Component,
+    PravinSeth1Component,
   ],
   imports: [
     CommonModule,

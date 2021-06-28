@@ -6,10 +6,11 @@ import { Demotable2Component } from './demotable2/demotable2.component';
 import { MatrixTableComponent } from './matrix-table/matrix-table.component';
 import { MatrixTable1Component } from './matrix-table1/matrix-table1.component';
 import { PravinSethComponent } from './pravin-seth/pravin-seth.component';
+import { PravinSeth1Component } from './pravin-seth1/pravin-seth1.component';
 const routes: Routes = [
   {
     path: '',
-    component: PravinSethComponent,
+    component: PravinSeth1Component,
   },
 ];
 

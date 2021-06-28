@@ -35,18 +35,17 @@ export class PravinSethComponent implements OnInit {
 
   sixMonthAgoDate() {
     const d = new Date();
-    
+
     d.setMonth(d.getMonth() - 6);
     this.sixMonthOldDate = this.formatDate(d);
     console.log('sixMonthOldDate ++++++ ', this.sixMonthOldDate);
-    
   }
 
   OnClickBtn() {
     this.toDayDate();
     this.oneMonthAgoDate();
 
-   
+    this.tryFun();
   }
 
   demoDateFn() {
@@ -54,13 +53,12 @@ export class PravinSethComponent implements OnInit {
     console.log('Demo Date2: ', this.demoDate1);
 
     const d1 = new Date(this.demoDate);
-    const d2 = new Date(this.demoDate1)
+    const d2 = new Date(this.demoDate1);
 
-    console.log(d1, ' --- ', d2);  
+    console.log(d1, ' --- ', d2);
 
-        
     console.log('Calculated Months :-- > ', this.monthDiff(d1, d2));
-    this.month =  this.monthDiff(d1, d2);
+    this.month = this.monthDiff(d1, d2);
   }
 
   formatDate(date) {
@@ -77,16 +75,45 @@ export class PravinSethComponent implements OnInit {
 
   monthDiff(d2, d1) {
     var months;
-    console.log('d2 --> ',d2);
-    console.log('d1 --> ',d1);
-    
+    console.log('d2 --> ', d2);
+    console.log('d1 --> ', d1);
+
     console.log(d2.getFullYear());
-    
+
     months = (d2.getFullYear() - d1.getFullYear()) * 12;
-    console.log('Months1 : ',d1.getMonth());
-    console.log('Months2 : ',d2.getMonth());
+    console.log('Months1 : ', d1.getMonth());
+    console.log('Months2 : ', d2.getMonth());
     months -= d1.getMonth();
     months += d2.getMonth();
-    return months ;
-   }
+    return months;
+  }
+
+  tryFun() {
+    const date1 = new Date('7/13/2010');
+    const date2 = new Date('7/13/2010');
+    console.log('Day : ', getDifferenceInDays(date1, date2));
+    console.log('Hours', getDifferenceInHours(date1, date2));
+    console.log('Minuts', getDifferenceInMinutes(date1, date2));
+    console.log('Second ', getDifferenceInSeconds(date1, date2));
+
+    function getDifferenceInDays(date1, date2) {
+      const diffInMs = Math.abs(date2 - date1);
+      return diffInMs / (1000 * 60 * 60 * 24);
+    }
+
+    function getDifferenceInHours(date1, date2) {
+      const diffInMs = Math.abs(date2 - date1);
+      return diffInMs / (1000 * 60 * 60);
+    }
+
+    function getDifferenceInMinutes(date1, date2) {
+      const diffInMs = Math.abs(date2 - date1);
+      return diffInMs / (1000 * 60);
+    }
+
+    function getDifferenceInSeconds(date1, date2) {
+      const diffInMs = Math.abs(date2 - date1);
+      return diffInMs / 1000;
+    }
+  }
 }
