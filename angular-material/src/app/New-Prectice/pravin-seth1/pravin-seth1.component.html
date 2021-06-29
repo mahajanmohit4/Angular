@@ -11,7 +11,7 @@
   <span *ngIf="checkMonth === 6">Tik</span>
 </div>
 <div style="margin: 5px">
-  <h3><button>Custom</button></h3>
+  <h3><button (click)="customBtn()">Custom</button></h3>
   <span
     *ngIf="
       checkMonth == 0 || checkMonth == 2 || checkMonth == 4 || checkMonth == 5
@@ -21,7 +21,7 @@
 </div>
 
 <!-- Date Input  -->
-<div>
+<div *ngIf="fixMonths">
   From:
   <input
     type="date"
@@ -30,6 +30,7 @@
     min="{{ sixMonthOldDate }}"
     max="{{ currentDate }}"
     value=""
+    readonly
   />
   To:
   <input
@@ -37,6 +38,28 @@
     (change)="checkCustom()"
     [(ngModel)]="toDate"
     min="{{ sixMonthOldDate }}"
+    max="{{ currentDate }}"
+    value=""
+    readonly
+  />
+</div>
+
+<div *ngIf="customMonths">
+  From:
+  <input
+    type="date"
+    (change)="checkCustom()"
+    [(ngModel)]="fromDate"
+    min="{{ customSixMonthOld }}"
+    max="{{ toDate }}"
+    value=""
+  />
+  To:
+  <input
+    type="date"
+    (change)="checkCustom()"
+    [(ngModel)]="toDate"
+    min="{{ customSixMonthOld }}"
     max="{{ currentDate }}"
     value=""
   />

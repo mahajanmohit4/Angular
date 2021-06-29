@@ -6,13 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pravin-seth1.component.css'],
 })
 export class PravinSeth1Component implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {
-    this.currentDateFun();
-    this.oneMonthAgoDate();
-  }
-
   fromDate;
   toDate;
   checkMonth: Number;
@@ -23,6 +16,17 @@ export class PravinSeth1Component implements OnInit {
 
   currentDate;
   sixMonthOldDate;
+
+  fixMonths: boolean = false;
+  customMonths: boolean = false;
+  constructor() {}
+
+  ngOnInit(): void {
+    this.fixMonths = true;
+    this.currentDateFun();
+    this.oneMonthAgoDate();
+  }
+
   currentDateFun() {
     this.currentDate = new Date();
     this.currentDate = this.formatDate(this.currentDate);
@@ -34,6 +38,8 @@ export class PravinSeth1Component implements OnInit {
     this.sixMonthOldDate = this.formatDate(this.sixMonthOldDate);
   }
   oneMonthAgoDate() {
+    this.fixMonths = true;
+    this.customMonths = false;
     this.toDate = new Date();
     const one = new Date(this.toDate);
 
@@ -47,6 +53,8 @@ export class PravinSeth1Component implements OnInit {
   }
 
   threeMonthAgoDate() {
+    this.fixMonths = true;
+    this.customMonths = false;
     this.toDate = new Date();
     const three = new Date(this.toDate);
 
@@ -60,6 +68,8 @@ export class PravinSeth1Component implements OnInit {
   }
 
   sixMonthAgoDate() {
+    this.fixMonths = true;
+    this.customMonths = false;
     this.toDate = new Date();
     const six = new Date(this.toDate);
 
@@ -71,7 +81,14 @@ export class PravinSeth1Component implements OnInit {
     this.checkMonth = 6;
     this.sixMonthDate = this.formatDate(six);
   }
-
+  customSixMonthOld;
+  customBtn() {
+    this.fixMonths = false;
+    this.customMonths = true;
+    this.toDate = '';
+    this.fromDate = '';
+    this.checkMonth = 0;
+  }
   formatDate(date) {
     var d = new Date(date),
       month = '' + (d.getMonth() + 1),
@@ -87,6 +104,10 @@ export class PravinSeth1Component implements OnInit {
   checkCustom() {
     console.log('From Date : ', this.fromDate);
     console.log('To Date : ', this.toDate);
+
+    const d = new Date(this.toDate);
+    d.setMonth(d.getMonth() - 6);
+    this.customSixMonthOld = this.formatDate(d);
 
     const months = this.monthDiff(this.fromDate, this.toDate);
     console.log('Months --> ', months);
